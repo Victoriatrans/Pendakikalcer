@@ -1,0 +1,15 @@
+// supabase-client-example.js
+// Tambahkan library @supabase/supabase-js pada proyek production.
+// Environment variable harus disediakan Vercel.
+
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+// Contoh:
+// const { data, error } = await supabase.from('trips').select('*').order('created_at');
+// const { data, error } = await supabase.from('participants').insert([{ name, trip_id, package }]).select();
+// Admin login:
+// await supabase.auth.signInWithPassword({ email, password });
